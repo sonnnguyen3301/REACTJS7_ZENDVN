@@ -1,0 +1,181 @@
+.ass1-section__footer {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .ass1-section__footer .ass1-btn-icon {
+    margin-top: 10px;
+  }
+  .ass1-aside .ass1-section__footer .ass1-btn-icon {
+    margin-right: 25px;
+  }
+  .ass1-aside .ass1-section__footer .ass1-btn-icon i {
+    font-size: 18px;
+  }
+  .ass1-aside .ass1-section__footer .ass1-section__btn-repost i {
+    font-size: 22px;
+  }
+  .ass1-aside__edit-post-footer {
+    padding-top: 22px;
+  }
+  .ass1-aside__edit-post-footer > span:not(:last-child),
+  .ass1-aside__edit-post-footer > label:not(:last-child) {
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+  .ass1-aside__edit-post-footer .ass1-btn {
+    margin-top: 16px;
+    background-color: transparent;
+    color: #ed1c24;
+    border-color: #ed1c24;
+  }
+  .ass1-aside__edit-post-footer .ass1-btn i {
+    font-size: 18px;
+    color: #ed1c24;
+  }
+  .ass1-aside__edit-post-footer .ass1-btn:hover {
+    color: #ffffff;
+    background-color: #ed1c24;
+  }
+  .ass1-aside__edit-post-footer .ass1-btn:hover i {
+    color: #ffffff;
+  }
+  .ass1-login__footer {
+    padding-top: 40px;
+    border-top: solid 1px #e6e9f1;
+  }
+  .ass1-login__footer p {
+    margin-bottom: 20px;
+  }
+  .ass1-user__footer {
+    padding: 30px 30px;
+    align-items: center;
+    border-bottom: solid 1px #f3f3f3;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .ass1-user__footer .ass1-avatar {
+    margin-right: 30px;
+  }
+  .ass1-user__footer > div a {
+    font-weight: 500;
+  }
+  .ass1-user__footer > div a:visited,
+  .ass1-user__footer > div a:active,
+  .ass1-user__footer > div a:link {
+    color: #1e1633;
+  }
+  .ass1-user__footer > div span {
+    color: #9fa3ac;
+  }
+  .ass1-user__footer > div p {
+    color: #1e1633;
+  }
+  .ass1-statistic__footer {
+    padding: 20px 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .ass1-statistic__footer > a {
+    margin: 5px 0;
+    align-items: center;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .ass1-statistic__footer > a:visited,
+  .ass1-statistic__footer > a:active,
+  .ass1-statistic__footer > a:link {
+    color: #1e1633;
+  }
+  .ass1-statistic__footer > a i {
+    margin-right: 15px;
+    color: #9fa3ac;
+  }
+  .ass1-statistic__footer > a span {
+    font-size: 14px;
+  }
+  .ass1-calendar__footer {
+    padding: 22px 0;
+    border-top: solid 1px #f3f3f3;
+    align-items: center;
+    justify-content: center;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .ass1-footer {
+    padding: 40px 15px 70px;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ass1-footer__more-btn {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ass1-footer__more-btn p {
+    margin-left: 30px;
+    color: #63616b;
+    display: inline;
+  }
+  .ass1-footer__more-btn span {
+    font-size: 36px;
+  }
+  .ass1-footer__more-btn span::before {
+    color: #63616b !important;
+  }
+  .ass1-footer__more-btn-disable {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+  .ass1-footer__btn-add-image {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 430px;
+    justify-content: center;
+    border-width: 1px;
+    border-color: #9fa3ac;
+    background-color: transparent;
+  }
+  .ass1-footer__btn-add-image:visited,
+  .ass1-footer__btn-add-image:active,
+  .ass1-footer__btn-add-image:link {
+    color: #9fa3ac;
+  }
+  .ass1-footer__btn-add-image i {
+    color: #9fa3ac !important;
+  }
+  .ass1-footer__btn-add-image:hover {
+    background-color: #9fa3ac;
+  }
+  .ass1-footer__btn-add-image:hover:visited,
+  .ass1-footer__btn-add-image:hover:active,
+  .ass1-footer__btn-add-image:hover:link {
+    color: #ffffff;
+  }
+  .ass1-footer__btn-add-image:hover i {
+    color: #ffffff !important;
+  }
