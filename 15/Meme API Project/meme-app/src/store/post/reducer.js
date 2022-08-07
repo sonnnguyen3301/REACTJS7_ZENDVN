@@ -1,4 +1,4 @@
-import { ACT_FETCH_POST, ACT_FETCH_POST_SEARCH , ACT_FETCH_POST_DETAIL, ACT_FETCH_USER_BY_ID, ACT_FETCH_RELATED_POSTS } from "./actions"
+import { ACT_FETCH_POST, ACT_FETCH_POST_SEARCH , ACT_FETCH_POST_DETAIL, ACT_FETCH_POST_USER_BY_ID, ACT_FETCH_RELATED_POSTS } from "./actions"
 
 const initState = {
     ArticlePostsPaging:{
@@ -10,7 +10,7 @@ const initState = {
         post : [],
         user : []
     },
-    ArticlePostRelated: [],
+    ArticlePostUser: [],
 } 
 
 
@@ -40,20 +40,11 @@ function reducer(postState = initState, action){
                 ...postState,
                 ArticlePostsDetail: action.payload.post
             }
-        case ACT_FETCH_RELATED_POSTS:
+        case ACT_FETCH_POST_USER_BY_ID:
             return{
                 ...postState,
-                ArticlePostRelated: action.payload.posts
+                ArticlePostUser: action.payload.posts
             }
-        // case ACT_FETCH_USER_BY_ID:
-        //     return{
-        //         ...postState,
-        //         ArticlePostsDetail: {
-        //             ...postState.ArticlePostsDetail,
-        //             post: action.payload.post,
-        //             user: action.payload.user
-        //         }
-        //     }
         default:
             return postState
     }

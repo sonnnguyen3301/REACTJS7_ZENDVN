@@ -1,4 +1,4 @@
-import { ROUTER_POST } from "../constants"
+import { ROUTER_POST, USER_POST } from "../constants"
 
 
 
@@ -6,11 +6,14 @@ export function getQueryStr(name, location) {
     return new URLSearchParams(location.search).get(name)
 }
 export function genUserLink(authorId) {
-    return `/member/member.php?userId=${authorId}`
+    return `/post/getListPostUserID.php?userid=${authorId}`
   }
-  export function genPostLink(slug) {
-    return ROUTER_POST.replace(':slug', slug)
-  }
+export function genPostLink(slug) {
+  return ROUTER_POST.replace(':slug',  slug)
+}
+export function genUserPostLink(slug) {
+  return USER_POST.replace(':slug', slug)
+}
 export function handleHashCategoryById(posts) {
   const hashObj = {}
 

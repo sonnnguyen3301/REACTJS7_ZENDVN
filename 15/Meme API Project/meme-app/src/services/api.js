@@ -23,7 +23,7 @@ export const api = {
     callWithToken() {
       return axios.create({
         baseURL: BASE_URL,
-        data: {
+        headers: {
           Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
         }
       });

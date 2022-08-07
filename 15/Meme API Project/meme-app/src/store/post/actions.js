@@ -7,7 +7,7 @@ export const ACT_FETCH_POST = 'ACT_FETCH_POST'
 export const ACT_FETCH_POST_SEARCH = 'ACT_FETCH_POST_SEARCH'
 export const ACT_FETCH_POST_DETAIL = 'ACT_FETCH_POST_DETAIL'
 export const ACT_FETCH_RELATED_POSTS = 'ACT_FETCH_RELATED_POSTS'
-export const ACT_FETCH_USER_BY_ID = 'ACT_FETCH_USER_BY_ID'
+export const ACT_FETCH_POST_USER_BY_ID = 'ACT_FETCH_POST_USER_BY_ID'
 
 
 // Action
@@ -41,12 +41,11 @@ export function actFetchPostDetail(post) {
     }
   }
 }
-export function actFetchUserById(post,user) {
+export function actFetchPostUserById(posts) {
   return {
-    type: ACT_FETCH_USER_BY_ID,
+    type: ACT_FETCH_POST_USER_BY_ID,
     payload: { 
-      post,
-      user
+      posts
      }
   }
 }
@@ -97,12 +96,13 @@ export function actFetchPostAsync({
       }
     }
   }
-  export function actFetchUserByIdAsync(post,userid){
+  export function actFetchPostUserByIdAsync(userid){
     return async dispatch =>{
       try{
-        const response = await authService.fetchUserByID(userid)
-        console.log('responseUSERID',response);
-        dispatch(actFetchUserById(post,userid))
+        const response = await postService.fetchPostByUserID(userid)
+        console.log('response.data',response.data);
+        dispatch(actFetchPostUserById(response.data))
+        return { ok: response.status}
       }
       catch{
         return { ok: false }
@@ -117,11 +117,8 @@ export function actFetchPostAsync({
         if (!post) {
           throw new Error('Post Not Found')
         }
-        const postId = post.PID
-        const authorId = post.USERID
   
         dispatch(actFetchPostDetail(post))
-        // dispatch(actFetchUserByIdAsync(post,authorId))
         // dispatch(actFetchCommentsAsync({ postId }))
         // dispatch(actFetchRelatedPostsAsync({ authorId, postId }))
   
@@ -143,19 +140,3 @@ export function actFetchPostAsync({
       }
     }
   }
-  // export function actFetchRelatedPostsAsync({ authorId, postId }) {
-  //   return async dispatch => {
-  //     try {
-  //       const response = await postService.getList({ 
-  //         author: authorId,
-  //         exclude: postId,
-  //         per_page: 3
-  //       })
-  //       const posts = response.data.map(mappingPostData)
-  
-  //       dispatch(actFetchRelatedPosts(posts))
-  //     } catch(err) {
-  
-  //     }
-  //   }
-  // }

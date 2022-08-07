@@ -1,5 +1,6 @@
 import {formatRelativeDate} from '../../../helpers/day'
 import { Link } from 'react-router-dom'
+import { genUserPostLink } from '../../../helpers'
 
 function PostItemHead({
     name,
@@ -7,11 +8,11 @@ function PostItemHead({
     url= '/',
     avatar,
     type,
-    authorLink='/',
+    authorID='/',
     ...restParams
 }) {
     const { dateRelative } = formatRelativeDate(passed)
-
+    const authorLink  = genUserPostLink(authorID)
     if(type === 'home')
     {
         return( <div className="ass1-section__head">

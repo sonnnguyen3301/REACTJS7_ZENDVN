@@ -35,7 +35,7 @@ export const postService = {
         })
     },
     fetchPostByUserID(userid) {
-        return api.callWithToken().get('/post/getListPostUserID.php',{ params: { userid: 5 } })
+        return api.callWithToken().get('/post/getListPostUserID.php',{ params: { userid } })
     },
 }
 

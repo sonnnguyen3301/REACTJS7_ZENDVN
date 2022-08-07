@@ -22,4 +22,5 @@ export const MESSAGE_FORM_ERROR = {
   }
 
   export const ROUTER_POST = '/post/post.php:slug'
+  export const USER_POST   = '/post/getListPostUserID.php:slug'
   

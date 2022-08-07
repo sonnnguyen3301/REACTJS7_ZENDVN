@@ -1,4 +1,3 @@
-import PostRelated from '../PostRelated'
 // import './postItem.css'
 
 import PostItemContent from './PostItemContent'
@@ -33,7 +32,7 @@ function PostItem({
                                             passed={post.time_added}
                                             avatar={avatar}
                                             type={'home'}
-                                            authorLink={genUserLink(post.USERID)}
+                                            authorID={post.USERID}
                                             />
                                             <PostItemContent postLink={genPostLink(post.PID)} image={post_image} content={post.post_content}/>
                                             <PostItemFooter postLink={genPostLink(post.PID)} type={'home'} number={number}/>

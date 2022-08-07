@@ -21,7 +21,7 @@ import { actFetchCategoryAsync } from "./store/category/actions";
 import CategoryPage from "./pages/CategoryPage";
 import RegisterPage from "./pages/RegisterPage";
 import PostDetailPage from "./pages/PostDetailPage";
-import { ROUTER_POST } from "./constants";
+import { ROUTER_POST, USER_POST } from "./constants";
 
 function App() {
   const dispatch = useDispatch()
@@ -42,7 +42,7 @@ function App() {
         <Route path="/category" element={<CategoryPage />}/>
         <Route path="/search" element={<SearchPage />}/>
         <Route path="/upload" element={<UploadPage />}/>
-        <Route path="/history" element={<HistoryPostPage />}/>
+        <Route path={USER_POST} element={<HistoryPostPage />}/>
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/" element={<HomePage />}/>
       </Routes>

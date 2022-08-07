@@ -14,7 +14,7 @@ import PostItemFeeling from '../components/PostItem/PostItemFeeling'
 import PostItemFooter from '../components/PostItem/PostItemFooter'
 import PostItemHead from '../components/PostItem/PostItemHead'
 
-import { actFetchPostDetailAsync, actFetchRelatedPostsAsync, actFetchUserById } from "../store/post/actions"
+import { actFetchPostAsync, actFetchPostDetailAsync } from "../store/post/actions"
 // import PageNotFound from "../components/PageNotFound/PageNotFound"
 import IconLoading from "../components/shared/IconLoading"
 import { handleHashCategoryById } from "../helpers";
@@ -29,20 +29,8 @@ function PostDetailPage() {
   const { 
     list: posts, 
   } = useSelector(state => state.Post.ArticlePostsPaging)
-  let fullposts =  handleHashCategoryById(posts)
-  let post      = ''
-  if(postDetail.PID){
-    post          = fullposts[postDetail.PID]
-  }
-  let postID    = post.PID || ''
-  let authorID  = post.USERID || ''
-  let name      = post.name || ''
-  let img       = post.img || ''
-  let content   = post.content || ''
-  let passed    = post.passed || ''
-  let profile   = post.profile || ''
-  console.log('author',authorID);
   useEffect(() => {
+    dispatch(actFetchPostAsync())
     dispatch(actFetchPostDetailAsync(slug))
       .then(res => {
         if (res.ok) {
@@ -52,6 +40,23 @@ function PostDetailPage() {
         }
       })
   }, [slug, dispatch])
+  let fullposts =  handleHashCategoryById(posts)
+  let relatedPosts = []
+  let post      = ''
+  if(postDetail.PID){
+    post          = fullposts[postDetail.PID]
+   
+    posts.forEach(element => {
+      let i = 0;
+      if(element.PID !== postDetail.PID)
+      {  
+        relatedPosts.push(element)
+        i++
+      }
+      if( i === 4) return relatedPosts
+    });
+  }
+
 
   if (status === 'loading') {
     return (  
@@ -83,7 +88,34 @@ function PostDetailPage() {
       </div>
     )
   }
+  // let name      = post.name || ''
+  // let img       = post.img || ''
+  // let content   = post.content || ''
+  // let passed    = post.passed || ''
+  // let profile   = post.profile || ''
+  if(!post){
+    return(
+      <main>
+            <div className="container">
+                {/*sections*/}
+                <div className="row">
+                    <div className="col-lg-8">
+                        {/*section*/}
+                        <div className="ass1-section__list">
+                            <div className="ass1-section">
+                               <IconLoading width={150}/>
+                            </div>
+                            <PostItemAddComment/>
+                            <PostItemComment/>
+                        </div>
+                    </div>
+                    {posts && <PostRelated posts={relatedPosts}/>}                                             
+                </div>
+            </div>
+        </main>
 
+    )
+  }
   return (
     <main>
             <div className="container">
@@ -93,8 +125,8 @@ function PostDetailPage() {
                         {/*section*/}
                         <div className="ass1-section__list">
                             <div className="ass1-section">
-                                <PostItemHead avatar={profile} name={name} passed={passed}/>
-                                <PostItemContent content={content} image={img}/>
+                                <PostItemHead avatar={post.profile} name={post.name} passed={post.passed}/>
+                                <PostItemContent content={post.content} image={post.img}/>
                                 <PostItemFooter/>
                                 <PostItemFeeling/>
                             </div>
@@ -102,7 +134,7 @@ function PostDetailPage() {
                             <PostItemComment/>
                         </div>
                     </div>
-                    {/* <PostRelated authorid={authorID}/>                                                   */}
+                    {posts && <PostRelated posts={relatedPosts}/>}                                             
                 </div>
             </div>
         </main>
